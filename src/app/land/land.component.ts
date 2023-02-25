@@ -20,19 +20,19 @@ export class LandComponent implements Structure{
   getNumWorkers(): number {
     return this.workers;
   }
-  addWorkers(workers: number): boolean {
-    if(this.workers == LandComponent.BASE_CAPACITY*this.level){
+  addWorkers(num: number): boolean {
+    if(this.workers + num > LandComponent.BASE_CAPACITY*this.level){
       return false
     }else{
-      this.workers++;
+      this.workers += num;
       return true;
     }
   }
-  removeWorkers(workers: number): boolean {
-    if(this.workers == 0){
+  removeWorkers(num: number): boolean {
+    if(this.workers - num < 0){
       return false
     }else{
-      this.workers--;
+      this.workers -= num;
       return true;
     }
   }
@@ -44,5 +44,8 @@ export class LandComponent implements Structure{
   }
   expand(): boolean {
     return false;
+  }
+  getLevel(): number{
+    return this.level;
   }
 }

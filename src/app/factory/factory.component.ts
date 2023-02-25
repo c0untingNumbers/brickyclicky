@@ -21,19 +21,19 @@ export class FactoryComponent implements Structure{
   getNumWorkers(): number {
     return this.workers;
   }
-  addWorkers(workers: number): boolean {
-    if(this.workers == FactoryComponent.BASE_CAPACITY*this.level){
+  addWorkers(num: number): boolean {
+    if(this.workers + num > FactoryComponent.BASE_CAPACITY*this.level){
       return false
     }else{
-      this.workers++;
+      this.workers += num;
       return true;
     }
   }
-  removeWorkers(workers: number): boolean {
-    if(this.workers == 0){
+  removeWorkers(num: number): boolean {
+    if(this.workers - num < 0){
       return false
     }else{
-      this.workers--;
+      this.workers -= num;
       return true;
     }
   }
@@ -46,5 +46,8 @@ export class FactoryComponent implements Structure{
   expand(): boolean {
     this.level++;
     return true;
+  }
+  getLevel(): number{
+    return this.level;
   }
 }
