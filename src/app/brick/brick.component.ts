@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './brick.component.html',
   styleUrls: ['./brick.component.css']
 })
-export class BrickComponent {
+export class BrickComponent{
 
 }
