@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import Shop from 'src/model/Shop';
 import { ModelService } from '../model.service';
 
@@ -7,12 +7,18 @@ import { ModelService } from '../model.service';
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.css'],
 })
-export class ShopComponent {
+export class ShopComponent implements OnInit {
   shopTitle = 'Shop';
 
   workerTitle = 'Worker';
   apartmentTitle = 'Apartment';
   factoryTitle = 'Factory';
+
+  @Input() onBuy!: () => void;
+
+  buyWorker!: () => void;
+  buyApartment!: () => void;
+  buyFactory!: () => void;
 
   workerCost() {
     return Shop.getWorkerCost();
@@ -42,16 +48,19 @@ export class ShopComponent {
   apartmentImg = 'assets/apt_icon.png';
   factoryImg = 'assets/factory_icon.png';
 
-  buyWorker() {
-    Shop.buyWorker();
-  }
+  ngOnInit(): void {
+    this.buyWorker = () => {
+      Shop.buyWorker();
+    };
 
-  buyApartment() {
-    Shop.upgradeApartment();
-  }
+    this.buyApartment = () => {
+      Shop.upgradeApartment();
+      this.onBuy();
+    };
 
-  buyFactory() {
-    Shop.upgradeFactory();
+    this.buyFactory = () => {
+      Shop.upgradeFactory();
+    };
   }
 
   constructor(private modelService: ModelService) {}

@@ -44,8 +44,33 @@ export class AppComponent implements OnInit {
     this.app.ticker.add((delta) => {
       elapsed += delta;
       Player.work();
-      console.log(`Player bricks = ${Player.getNumBricks()}`);
-      console.log(`Worker cost: ${Shop.getWorkerCost()}`);
     });
   }
+
+  updateApartment() {
+    const level = this.modelService.apartment.getLevel();
+    if (level === 1) {
+      const sprite = PIXI.Sprite.from('assets/apt_floor1.PNG');
+      console.log(innerWidth, innerHeight);
+      sprite.scale.set(0.0002 * innerWidth, 0.0002 * innerWidth);
+      sprite.x = window.innerWidth / 10;
+      sprite.y = window.innerHeight - window.innerHeight / 2;
+      this.app.stage.addChild(sprite);
+    } else {
+      const sprite = PIXI.Sprite.from('assets/apt_extension.PNG');
+      const aptHeight = 600 * 0.0002 * innerWidth;
+      sprite.scale.set(0.0002 * innerWidth, 0.0002 * innerWidth);
+      sprite.x = window.innerWidth / 10;
+      sprite.y =
+        window.innerHeight - window.innerHeight / 2 - (level - 1) * aptHeight;
+      this.app.stage.addChild(sprite);
+    }
+  }
+
+  buyCallback() {
+    console.dir(this);
+    this.updateApartment();
+  }
+
+  onBuy = this.buyCallback.bind(this);
 }
