@@ -9,9 +9,8 @@ import { ModelService } from '../model.service';
   styleUrls: ['./bricks.component.css'],
 })
 export class BricksComponent {
-  // cost = this.modelService.shop.getWorkerCost();
-  cost() {
-    return Shop.getWorkerCost();
+  bricks() {
+    return Player.getNumBricks();
   }
 
   efficiency() {
