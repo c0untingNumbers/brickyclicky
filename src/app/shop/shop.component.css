@@ -1,0 +1,10 @@
+/* Make a shop sidebar that sticks to the right side of the page */
+.shop-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  padding: 1rem;
+  background-color: #f8f9fa;
+}
