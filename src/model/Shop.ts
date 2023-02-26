@@ -5,8 +5,8 @@ import Player from './Player';
 
 export class Shop {
   private apartmentCost: number = 2;
-  private workerCost: number = 50;
-  private factoryCost: number = 1000;
+  private workerCost: number = 2;
+  private factoryCost: number = 2;
 
   upgradeApartment(): boolean {
     if (Player.getNumBricks() < this.apartmentCost) return false;
@@ -24,7 +24,7 @@ export class Shop {
 
   buyWorker(): boolean {
     if (Player.getNumBricks() < this.workerCost) return false;
-    if (!Land.addWorkers(1)){
+    if (!Land.addWorkers(1)) {
       return false;
     }
     Player.spend(this.workerCost);

@@ -19,6 +19,8 @@ export class ShopComponent implements OnInit {
   buyWorker!: () => void;
   buyApartment!: () => void;
   buyFactory!: () => void;
+  addToApartment!: () => void;
+  addToFactory!: () => void;
 
   apartmentTitle() {
     return Apartment.getLevel() > 0 ? `Apartment (${Apartment.getNumWorkers()}/${Apartment.getCapacity()})`:'Apartment';

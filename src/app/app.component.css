@@ -15,7 +15,9 @@
   width: 100%;
   height: auto;
   text-align: center;
-  border: 5px solid #000;
+  /* border: 5px solid #000; */
+  background: none;
+  border: none;
 }
 
 .brick img {
