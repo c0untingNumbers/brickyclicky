@@ -10,7 +10,7 @@ class Player {
     this.numBricks++;
   }
   work(): void {
-    const income = this.getTotalEfficiency() / 60;
+    const income = this.getTotalEfficiency() / (60 / 2.5);
     this.numBricks += income;
   }
 

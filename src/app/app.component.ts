@@ -43,7 +43,10 @@ export class AppComponent implements OnInit {
     let elapsed = 0.0;
     this.app.ticker.add((delta) => {
       elapsed += delta;
-      Player.work();
+      if (elapsed > 2.5) {
+        Player.work();
+        elapsed = 0;
+      }
     });
   }
 
