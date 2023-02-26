@@ -50,6 +50,10 @@ export class AppComponent implements OnInit {
     });
   }
 
+  onBrickClick() {
+    this.modelService.player.click();
+  }
+
   updateApartment() {
     const level = this.modelService.apartment.getLevel();
     if (level === 1) {
