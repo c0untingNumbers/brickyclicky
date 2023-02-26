@@ -4,7 +4,7 @@ import Land from './Land';
 import { Structure } from './Structure';
 
 class Player {
-  numBricks: number = 0;
+  private numBricks: number = 0;
 
   work(): number {
     const income = this.getTotalEfficiency();
@@ -18,10 +18,12 @@ class Player {
     );
   }
 
-  moveWorkers(to: Structure, from: Structure, amount: number) {
-    if (to.addWorkers(amount)) {
-      from.removeWorkers(amount);
-    }
+  moveWorkers(to: Structure, from: Structure, amount: number): boolean {
+    return to.addWorkers(amount) && from.removeWorkers(amount);
+  }
+
+  getNumBricks(): number {
+    return this.numBricks;
   }
 }
 
