@@ -1,8 +1,8 @@
 import { Structure } from './Structure';
 
 class Apartment implements Structure {
-  static BASE_EFFICIENCY: number = 4;
-  static BASE_CAPACITY: number = 4;
+  static readonly BASE_EFFICIENCY: number = 4;
+  static readonly BASE_CAPACITY: number = 4;
   private level: number;
   private workers: number;
 

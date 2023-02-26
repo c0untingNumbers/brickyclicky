@@ -1,7 +1,7 @@
 import { Structure } from './Structure';
 
 export class Land implements Structure {
-  static BASE_EFFICIENCY: number = 1;
+  static readonly BASE_EFFICIENCY: number = 1;
   private level: number;
   private workers: number;
 

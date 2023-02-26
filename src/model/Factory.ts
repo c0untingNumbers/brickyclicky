@@ -1,8 +1,8 @@
 import { Structure } from './Structure';
 
 export class Factory implements Structure {
-  static BASE_EFFICIENCY: number = 10;
-  static BASE_CAPACITY: number = 20;
+  static readonly BASE_EFFICIENCY: number = 10;
+  static readonly BASE_CAPACITY: number = 20;
   private level: number;
   private workers: number;
 
