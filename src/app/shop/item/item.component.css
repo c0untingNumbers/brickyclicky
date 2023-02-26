@@ -4,6 +4,7 @@
   list-style-type: none;
   user-select: none;
   -webkit-user-select: none; /* Safari */
+  width: 300px;
 }
 
 img {
