@@ -20,13 +20,15 @@ class Player {
     );
   }
 
-  moveWorkers(to: Structure, from: Structure, amount: number): boolean {
-    if (!from.removeWorkers(amount)) {
-      return false;
+  moveWorkers(to: Structure, amount: number): boolean {
+    if (!Land.removeWorkers(amount)) {
+      const remaining = Land.getNumWorkers();
+      this.moveWorkers(to, remaining);
     }
     if (!to.addWorkers(amount)) {
-      from.addWorkers(amount);
-      return false;
+      Land.addWorkers(amount);
+      const remaining = to.getCapacity() - to.getNumWorkers();
+      this.moveWorkers(to, remaining);
     }
     return true;
   }
