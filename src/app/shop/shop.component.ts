@@ -54,12 +54,11 @@ export class ShopComponent implements OnInit {
     };
 
     this.buyApartment = () => {
-      Shop.upgradeApartment();
-      this.onBuy();
+      if (Shop.upgradeApartment()) this.onBuy();
     };
 
     this.buyFactory = () => {
-      Shop.upgradeFactory();
+      if (Shop.upgradeFactory()) this.onBuy();
     };
   }
 
