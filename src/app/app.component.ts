@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
     document.body.appendChild(this.app.view);
 
     const backgroundSprite = PIXI.Sprite.from('assets/background.png');
-    const bgAspectRatio = 1760 / 1320;
+    const bgAspectRatio = 1920 / 1080;
     backgroundSprite.height = window.innerHeight;
     backgroundSprite.width = bgAspectRatio * window.innerHeight;
     this.app.stage.addChild(backgroundSprite);
@@ -43,10 +43,7 @@ export class AppComponent implements OnInit {
     let elapsed = 0.0;
     this.app.ticker.add((delta) => {
       elapsed += delta;
-      if (elapsed > 60) {
-        Player.work();
-        elapsed = 0.0;
-      }
+      Player.work();
       console.log(`Player bricks = ${Player.getNumBricks()}`);
       console.log(`Worker cost: ${Shop.getWorkerCost()}`);
     });
