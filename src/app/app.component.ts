@@ -25,20 +25,20 @@ export class AppComponent implements OnInit {
     backgroundSprite.width = bgAspectRatio * window.innerHeight;
     this.app.stage.addChild(backgroundSprite);
 
-    const brickSprite = PIXI.Sprite.from('assets/brick.png');
-    brickSprite.width = 190;
-    brickSprite.height = 176;
-    brickSprite.anchor.set(0.5, 0.5);
-    brickSprite.y = 300;
-    brickSprite.x = backgroundSprite.width / 2;
+    // const brickSprite = PIXI.Sprite.from('assets/brick.png');
+    // brickSprite.width = 190;
+    // brickSprite.height = 176;
+    // brickSprite.anchor.set(0.5, 0.5);
+    // brickSprite.y = 300;
+    // brickSprite.x = backgroundSprite.width / 2;
 
-    brickSprite.interactive = true;
-    brickSprite.on('click', (e) => {
-      this.modelService.player.click();
-      console.log(this.modelService.player.getNumBricks());
-    });
+    // brickSprite.interactive = true;
+    // brickSprite.on('click', (e) => {
+    //   this.modelService.player.click();
+    //   console.log(this.modelService.player.getNumBricks());
+    // });
 
-    this.app.stage.addChild(brickSprite);
+    // this.app.stage.addChild(brickSprite);
 
     let elapsed = 0.0;
     this.app.ticker.add((delta) => {

@@ -1,14 +1,4 @@
 /* Make a shop sidebar that sticks to the right side of the page */
-.shop-sidebar {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 20rem;
-  padding: 1rem;
-  height: 100%;
-  background-color: #f8f9fa;
-}
-
 ul {
   list-style-type: none;
   list-style: none;
