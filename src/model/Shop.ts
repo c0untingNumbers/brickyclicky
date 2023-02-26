@@ -11,36 +11,35 @@ export class Shop {
   upgradeApartment(): boolean {
     if (Player.getNumBricks() < this.apartmentCost) return false;
     Player.spend(this.apartmentCost);
-    this.apartmentCost *= 0.1; 
+    this.apartmentCost *= 1.1;
     return Apartment.expand();
   }
 
   upgradeFactory(): boolean {
     if (Player.getNumBricks() < this.factoryCost) return false;
     Player.spend(this.factoryCost);
-    this.factoryCost *= 0.1;
+    this.factoryCost *= 1.1;
     return Factory.expand();
   }
 
   buyWorker(): boolean {
     if (Player.getNumBricks() < this.workerCost) return false;
     Player.spend(this.workerCost);
-    this.workerCost *= 0.1;
+    this.workerCost *= 1.1;
     return Land.addWorkers(1);
   }
 
-  getWorkerCost(): number{
+  getWorkerCost(): number {
     return this.workerCost;
   }
 
-  getApartmentCost(): number{
+  getApartmentCost(): number {
     return this.apartmentCost;
   }
 
-  getFactoryCost(): number{
+  getFactoryCost(): number {
     return this.factoryCost;
   }
 }
 
-export default new Shop(
-);
+export default new Shop();
