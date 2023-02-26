@@ -1,8 +1,9 @@
-/* put all h1's at the top of the page and in front of everything */
+* {
+  margin: 0;
+  padding: 0.1rem;
+  text-align: center;
+}
 
-h1 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1000;
+.efficiency {
+  padding-top: 0.8rem;
 }
