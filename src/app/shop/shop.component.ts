@@ -13,10 +13,7 @@ import { ModelService } from '../model.service';
 })
 export class ShopComponent implements OnInit {
   shopTitle = 'Shop';
-
   workerTitle = 'Worker';
-  apartmentTitle = 'Apartment';
-  factoryTitle = 'Factory';
 
   @Input() onBuy!: () => void;
 
@@ -25,6 +22,18 @@ export class ShopComponent implements OnInit {
   buyFactory!: () => void;
   addToApartment!: () => void;
   addToFactory!: () => void;
+
+  apartmentTitle() {
+    return Apartment.getLevel() > 0
+      ? `Apartment (${Apartment.getNumWorkers()}/${Apartment.getCapacity()})`
+      : 'Apartment';
+  }
+
+  factoryTitle() {
+    return Apartment.getLevel() > 0
+      ? `Factory (${Factory.getNumWorkers()}/${Factory.getCapacity()})`
+      : 'Factory';
+  }
 
   workerCost() {
     return Shop.getWorkerCost();
