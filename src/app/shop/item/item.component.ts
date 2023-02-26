@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'shop-item',
@@ -10,4 +10,6 @@ export class ItemComponent {
   @Input() cost!: number;
   @Input() img!: string;
   @Input() count!: number;
+
+  @Input() onClick!: () => void;
 }

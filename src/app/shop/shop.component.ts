@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import Apartment from 'src/model/Apartment';
+import Shop from 'src/model/Shop';
 import { ModelService } from '../model.service';
 
 @Component({
@@ -26,6 +28,18 @@ export class ShopComponent {
   workerImg = 'assets/worker_icon.png';
   apartmentImg = 'assets/apt_icon.png';
   factoryImg = 'assets/factory_icon.png';
+
+  buyWorker() {
+    Shop.buyWorker();
+  }
+
+  buyApartment() {
+    Shop.upgradeApartment();
+  }
+
+  buyFactory() {
+    Shop.upgradeFactory();
+  }
 
   constructor(private modelService: ModelService) {}
 }

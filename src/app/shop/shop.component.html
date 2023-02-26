@@ -7,18 +7,25 @@
         [cost]="workerCost"
         [count]="workerCount"
         [img]="workerImg"
+        [onClick]="buyWorker"
       ></shop-item>
+    </li>
+    <li>
       <shop-item
         [title]="apartmentTitle"
         [cost]="apartmentCost"
         [count]="apartmentCount"
         [img]="apartmentImg"
+        [onClick]="buyApartment"
       ></shop-item>
+    </li>
+    <li>
       <shop-item
         [title]="factoryTitle"
         [cost]="factoryCost"
         [count]="factoryCount"
         [img]="factoryImg"
+        [onClick]="buyFactory"
       ></shop-item>
     </li>
   </ul>
