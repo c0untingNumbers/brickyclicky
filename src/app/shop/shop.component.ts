@@ -1,4 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import Apartment from 'src/model/Apartment';
+import Factory from 'src/model/Factory';
+import Land from 'src/model/Land';
+import Player from 'src/model/Player';
 import Shop from 'src/model/Shop';
 import { ModelService } from '../model.service';
 
@@ -61,6 +65,14 @@ export class ShopComponent implements OnInit {
 
     this.buyFactory = () => {
       if (Shop.upgradeFactory()) this.onBuy();
+    };
+
+    this.addToApartment = () => {
+      Player.moveWorkers(Apartment, Land.getNumWorkers());
+    };
+
+    this.addToFactory = () => {
+      Player.moveWorkers(Factory, Land.getNumWorkers());
     };
   }
 
