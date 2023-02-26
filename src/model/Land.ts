@@ -2,6 +2,7 @@ import { Structure } from './Structure';
 
 export class Land implements Structure {
   static readonly BASE_EFFICIENCY: number = 2;
+  static readonly CAPACITY = 10;
   private level: number;
   private workers: number;
 
@@ -15,6 +16,8 @@ export class Land implements Structure {
   }
 
   addWorkers(num: number): boolean {
+    if (this.workers + num > Land.CAPACITY) return false;
+
     this.workers += num;
     return true;
   }
