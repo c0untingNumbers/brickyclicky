@@ -6,10 +6,12 @@ import { Structure } from './Structure';
 class Player {
   private numBricks: number = 0;
 
-  work(): number {
+  click(): void{
+    this.numBricks++;
+  } 
+  work(): void {
     const income = this.getTotalEfficiency();
     this.numBricks += income;
-    return income;
   }
 
   getTotalEfficiency(): number {
@@ -19,11 +21,22 @@ class Player {
   }
 
   moveWorkers(to: Structure, from: Structure, amount: number): boolean {
-    return to.addWorkers(amount) && from.removeWorkers(amount);
+    if(!from.removeWorkers(amount)){
+      return false;
+    }
+    if(!to.addWorkers(amount)){
+      from.addWorkers(amount);
+      return false;
+    }
+    return true;
   }
 
   getNumBricks(): number {
     return this.numBricks;
+  }
+
+  spend(amount: number): void{
+    this.numBricks -= amount;
   }
 }
 

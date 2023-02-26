@@ -5,15 +5,21 @@ import Player from './Player';
 
 export class Shop {
   upgradeApartment(): boolean {
-    return Player.getNumBricks() < 10 ? false : Apartment.expand();
+    if (Player.getNumBricks() < 200) return false;
+    Player.spend(200);
+    return Apartment.expand();
   }
 
   upgradeFactory(): boolean {
-    return Player.getNumBricks() < 20 ? false : Factory.expand();
+    if (Player.getNumBricks() < 1000) return false;
+    Player.spend(1000);
+    return Factory.expand();
   }
 
   buyWorker(): boolean {
-    return Player.getNumBricks() < 2 ? false : Land.addWorkers(1);
+    if (Player.getNumBricks() < 50) return false;
+    Player.spend(50);
+    return Land.addWorkers(1);
   }
 }
 
