@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
     document.body.appendChild(this.app.view);
 
     const backgroundSprite = PIXI.Sprite.from('assets/background.png');
-    const bgAspectRatio = 1920 / 1080;
+    const bgAspectRatio = 1760 / 1320;
     backgroundSprite.height = window.innerHeight;
     backgroundSprite.width = bgAspectRatio * window.innerHeight;
     this.app.stage.addChild(backgroundSprite);
