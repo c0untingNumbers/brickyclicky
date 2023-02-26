@@ -4,9 +4,9 @@ import Land from './Land';
 import Player from './Player';
 
 export class Shop {
-  private apartmentCost: number = 2;
-  private workerCost: number = 2;
-  private factoryCost: number = 2;
+  private apartmentCost: number = 200;
+  private workerCost: number = 50;
+  private factoryCost: number = 1000;
 
   upgradeApartment(): boolean {
     if (Player.getNumBricks() < this.apartmentCost) return false;

@@ -13,7 +13,6 @@ import { ModelService } from '../model.service';
 })
 export class ShopComponent implements OnInit {
   shopTitle = 'Shop';
-  workerTitle = 'Worker';
 
   @Input() onBuy!: () => void;
 
@@ -22,6 +21,14 @@ export class ShopComponent implements OnInit {
   buyFactory!: () => void;
   addToApartment!: () => void;
   addToFactory!: () => void;
+
+  workerTitle() {
+    return `Worker${
+      Land.getNumWorkers() > 0
+        ? ` (${Land.getNumWorkers()}/${Land.getCapacity()})`
+        : ''
+    }`;
+  }
 
   apartmentTitle() {
     return Apartment.getLevel() > 0

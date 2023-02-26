@@ -35,7 +35,7 @@ export class Land implements Structure {
   }
 
   getCapacity(): number {
-    return -1;
+    return Land.CAPACITY;
   }
 
   expand(): boolean {
