@@ -24,9 +24,12 @@ export class Shop {
 
   buyWorker(): boolean {
     if (Player.getNumBricks() < this.workerCost) return false;
+    if (!Land.addWorkers(1)){
+      return false;
+    }
     Player.spend(this.workerCost);
     this.workerCost *= 1.1;
-    return Land.addWorkers(1);
+    return true;
   }
 
   getWorkerCost(): number {
