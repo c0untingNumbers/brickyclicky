@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import Apartment from 'src/model/Apartment';
+import Factory from 'src/model/Factory';
 import Shop from 'src/model/Shop';
 import { ModelService } from '../model.service';
 
@@ -9,16 +11,22 @@ import { ModelService } from '../model.service';
 })
 export class ShopComponent implements OnInit {
   shopTitle = 'Shop';
-
   workerTitle = 'Worker';
-  apartmentTitle = 'Apartment';
-  factoryTitle = 'Factory';
+  
 
   @Input() onBuy!: () => void;
 
   buyWorker!: () => void;
   buyApartment!: () => void;
   buyFactory!: () => void;
+
+  apartmentTitle() {
+    return Apartment.getLevel() > 0 ? `Apartment (${Apartment.getNumWorkers()}/${Apartment.getCapacity()})`:'Apartment';
+  }
+
+  factoryTitle(){
+    return Apartment.getLevel() > 0 ? `Factory (${Factory.getNumWorkers()}/${Factory.getCapacity()})`:'Factory';
+  }
 
   workerCost() {
     return Shop.getWorkerCost();
