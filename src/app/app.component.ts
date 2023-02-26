@@ -10,8 +10,7 @@ export class AppComponent implements OnInit {
   title = 'brickyclicky';
   
   private app = new PIXI.Application<HTMLCanvasElement>({
-    width: innerWidth,
-    height: innerHeight,
+    resizeTo: window,
   });
 
   ngOnInit(): void {
