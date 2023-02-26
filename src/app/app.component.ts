@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as PIXI from 'pixi.js';
+import Player from 'src/model/Player';
+import Shop from 'src/model/Shop';
 import { ModelService } from './model.service';
 
 @Component({
@@ -27,7 +29,6 @@ export class AppComponent implements OnInit {
     brickSprite.width = 190;
     brickSprite.height = 176;
     brickSprite.anchor.set(0.5, 0.5);
-    // brickSprite.x = 500;
     brickSprite.y = 300;
     brickSprite.x = backgroundSprite.width / 2;
 
@@ -42,6 +43,12 @@ export class AppComponent implements OnInit {
     let elapsed = 0.0;
     this.app.ticker.add((delta) => {
       elapsed += delta;
+      if (elapsed > 60) {
+        Player.work();
+        elapsed = 0.0;
+      }
+      console.log(`Player bricks = ${Player.getNumBricks()}`);
+      console.log(`Worker cost: ${Shop.getWorkerCost()}`);
     });
   }
 }

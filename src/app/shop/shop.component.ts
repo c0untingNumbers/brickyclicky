@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import Apartment from 'src/model/Apartment';
 import Shop from 'src/model/Shop';
 import { ModelService } from '../model.service';
 
@@ -12,18 +11,32 @@ export class ShopComponent {
   shopTitle = 'Shop';
 
   workerTitle = 'Worker';
-  workerCost = this.modelService.shop.getWorkerCost();
   apartmentTitle = 'Apartment';
-  apartmentCost = this.modelService.shop.getApartmentCost();
   factoryTitle = 'Factory';
-  factoryCost = this.modelService.shop.getFactoryCost();
 
-  workerCount =
-    this.modelService.factory.getNumWorkers() +
-    this.modelService.apartment.getNumWorkers() +
-    this.modelService.land.getNumWorkers();
-  apartmentCount = this.modelService.apartment.getLevel();
-  factoryCount = this.modelService.factory.getLevel();
+  workerCost() {
+    return Shop.getWorkerCost();
+  }
+  apartmentCost() {
+    return Shop.getApartmentCost();
+  }
+  factoryCost() {
+    return Shop.getFactoryCost();
+  }
+
+  workerCount() {
+    return (
+      this.modelService.factory.getNumWorkers() +
+      this.modelService.apartment.getNumWorkers() +
+      this.modelService.land.getNumWorkers()
+    );
+  }
+  apartmentLevel() {
+    return this.modelService.apartment.getLevel();
+  }
+  factoryLevel() {
+    return this.modelService.factory.getLevel();
+  }
 
   workerImg = 'assets/worker_icon.png';
   apartmentImg = 'assets/apt_icon.png';

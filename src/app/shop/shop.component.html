@@ -4,8 +4,8 @@
     <li>
       <shop-item
         [title]="workerTitle"
-        [cost]="workerCost"
-        [count]="workerCount"
+        [cost]="workerCost()"
+        [count]="workerCount()"
         [img]="workerImg"
         [onClick]="buyWorker"
       ></shop-item>
@@ -13,8 +13,8 @@
     <li>
       <shop-item
         [title]="apartmentTitle"
-        [cost]="apartmentCost"
-        [count]="apartmentCount"
+        [cost]="apartmentCost()"
+        [count]="apartmentLevel()"
         [img]="apartmentImg"
         [onClick]="buyApartment"
       ></shop-item>
@@ -22,11 +22,12 @@
     <li>
       <shop-item
         [title]="factoryTitle"
-        [cost]="factoryCost"
-        [count]="factoryCount"
+        [cost]="factoryCost()"
+        [count]="factoryLevel()"
         [img]="factoryImg"
         [onClick]="buyFactory"
       ></shop-item>
     </li>
   </ul>
+  <app-bricks></app-bricks>
 </div>
