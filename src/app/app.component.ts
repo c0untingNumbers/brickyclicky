@@ -58,12 +58,11 @@ export class AppComponent implements OnInit {
     const level = this.modelService.apartment.getLevel();
     if (level === 1) {
       const sprite = PIXI.Sprite.from('assets/apt_floor1.PNG');
-      console.log(innerWidth, innerHeight);
       sprite.scale.set(0.0002 * innerWidth, 0.0002 * innerWidth);
       sprite.x = window.innerWidth / 10;
       sprite.y = window.innerHeight - window.innerHeight / 2;
       this.app.stage.addChild(sprite);
-    } else {
+    } else if (level > 1 && level < 5) {
       const sprite = PIXI.Sprite.from('assets/apt_extension.PNG');
       const aptHeight = 600 * 0.0002 * innerWidth;
       sprite.scale.set(0.0002 * innerWidth, 0.0002 * innerWidth);
@@ -74,9 +73,31 @@ export class AppComponent implements OnInit {
     }
   }
 
+  updateFactory() {
+    const level = this.modelService.factory.getLevel();
+    if (level === 1) {
+      const sprite = PIXI.Sprite.from('assets/factory_floor1.PNG');
+      sprite.scale.set(0.0002 * innerWidth, 0.0002 * innerWidth);
+      sprite.x = (5 * window.innerWidth) / 10;
+      sprite.y = window.innerHeight - window.innerHeight / 2;
+      this.app.stage.addChild(sprite);
+    } else if (level > 1 && level < 5) {
+      const sprite = PIXI.Sprite.from('assets/factory_extension.PNG');
+      const factoryHeight = 600 * 0.0002 * innerWidth;
+      sprite.scale.set(0.0002 * innerWidth, 0.0002 * innerWidth);
+      sprite.x = (5 * window.innerWidth) / 10;
+      sprite.y =
+        window.innerHeight -
+        window.innerHeight / 2 -
+        (level - 1) * factoryHeight;
+      this.app.stage.addChild(sprite);
+    }
+  }
+
   buyCallback() {
     console.dir(this);
     this.updateApartment();
+    this.updateFactory();
   }
 
   onBuy = this.buyCallback.bind(this);

@@ -19,6 +19,8 @@ export class ShopComponent implements OnInit {
   buyWorker!: () => void;
   buyApartment!: () => void;
   buyFactory!: () => void;
+  addToApartment!: () => void;
+  addToFactory!: () => void;
 
   workerCost() {
     return Shop.getWorkerCost();

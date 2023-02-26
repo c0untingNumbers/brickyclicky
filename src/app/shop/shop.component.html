@@ -1,4 +1,5 @@
 <div class="shop-sidebar">
+  <app-bricks></app-bricks>
   <h1>Shop</h1>
   <ul>
     <li>
@@ -7,6 +8,7 @@
         [cost]="workerCost()"
         [count]="workerCount()"
         [img]="workerImg"
+        [canAddTo]="false"
         [onClick]="buyWorker"
       ></shop-item>
     </li>
@@ -16,6 +18,7 @@
         [cost]="apartmentCost()"
         [count]="apartmentLevel()"
         [img]="apartmentImg"
+        [canAddTo]="true"
         [onClick]="buyApartment"
       ></shop-item>
     </li>
@@ -25,9 +28,9 @@
         [cost]="factoryCost()"
         [count]="factoryLevel()"
         [img]="factoryImg"
+        [canAddTo]="true"
         [onClick]="buyFactory"
       ></shop-item>
     </li>
   </ul>
-  <app-bricks></app-bricks>
 </div>

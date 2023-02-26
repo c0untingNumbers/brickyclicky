@@ -10,6 +10,8 @@ export class ItemComponent {
   @Input() cost!: number;
   @Input() img!: string;
   @Input() count!: number;
+  @Input() canAddTo!: boolean;
 
   @Input() onClick!: () => void;
+  @Input() onAddTo!: () => void;
 }

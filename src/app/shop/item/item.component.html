@@ -12,3 +12,6 @@
     {{ count }}
   </h3>
 </button>
+<button *ngIf="count > 0 && canAddTo" class="add-button" (click)="onAddTo()">
+  <h5>Add to {{ title }}</h5>
+</button>
