@@ -18,15 +18,18 @@ export class AppComponent implements OnInit {
     document.body.appendChild(this.app.view);
 
     const backgroundSprite = PIXI.Sprite.from('assets/background.png');
-    backgroundSprite.scale.set(0.7, 0.7);
+    const bgAspectRatio = 1920 / 1080;
+    backgroundSprite.height = window.innerHeight;
+    backgroundSprite.width = bgAspectRatio * window.innerHeight;
     this.app.stage.addChild(backgroundSprite);
 
     const brickSprite = PIXI.Sprite.from('assets/brick.png');
     brickSprite.width = 190;
     brickSprite.height = 176;
     brickSprite.anchor.set(0.5, 0.5);
-    brickSprite.x = 500;
+    // brickSprite.x = 500;
     brickSprite.y = 300;
+    brickSprite.x = backgroundSprite.width / 2;
 
     brickSprite.interactive = true;
     brickSprite.on('click', (e) => {
