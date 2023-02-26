@@ -7,7 +7,7 @@ export class Factory implements Structure {
   private workers: number;
 
   constructor() {
-    this.level = 1;
+    this.level = 0;
     this.workers = 0;
   }
 
